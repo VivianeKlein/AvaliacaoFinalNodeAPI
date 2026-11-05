@@ -1,6 +1,6 @@
 import cliente from '../model/cliente.js'
 
-class serviceCliente {
+class ServiceCliente {
 
     async Buscar() {
         return cliente.findAll()
@@ -36,4 +36,4 @@ class serviceCliente {
 
 }
 
-export default new serviceCliente()
+export default new ServiceCliente()
