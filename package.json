@@ -1,0 +1,26 @@
+{
+  "name": "AvaliacaoFinalNodeAPI",
+  "version": "0.0.1",
+  "description": "conteudos aprendidos com Node API.",
+  "homepage": "https://github.com/VivianeKlein/AvaliacaoFinalNodeAPI#readme",
+  "bugs": {
+    "url": "https://github.com/VivianeKlein/AvaliacaoFinalNodeAPI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivianeKlein/AvaliacaoFinalNodeAPI.git"
+  },
+  "license": "ISC",
+  "author": "Viviane Klein Etienne",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.23.1",
+    "sequelize": "^6.37.8"
+  }
+}
