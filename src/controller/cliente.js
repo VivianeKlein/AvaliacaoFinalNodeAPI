@@ -4,14 +4,14 @@ class ControllerCliente {
 
     async Buscar(req, res) {
         try {
-            const nome = await ServiceCliente.Buscar()
-            res.send({ nome})
+            const nomes = await ServiceCliente.Buscar()
+            res.send({ nomes })
         } catch (error) {
             res.send({ message: error.message})
         }
     }
 
-    BuscarUm(req, res) {
+    async BuscarUm(req, res) {
         try {
             const id = req.params.id
             const nome = ServiceCliente.BuscarUm(id)
@@ -21,31 +21,31 @@ class ControllerCliente {
         }
     }
 
-    Cadastrar(req, res) {
+    async Cadastrar(req, res) {
         try {
             const nome = req.body.nome
-            ServiceCliente.Cadastrar(nome)
+            await ServiceCliente.Cadastrar(nome)
             res.send({ message: "Cliente cadastrado com sucesso."})
         } catch (error) {
             res.send({ message: error.message })
         }
     }
 
-    Alterar(req, res) {
+    async Alterar(req, res) {
         try {
             const id = req.params.id
             const nome = req.body.nome
-            ServiceCliente.Alterar(id, nome)
+            await ServiceCliente.Alterar(id, nome)
             res.send({ message: "Cliente alterado com sucesso."})
         } catch (error) {
             res.send({ message: error.message})
         }
     }
 
-    Deletar(req, res) {
+    async Deletar(req, res) {
         try {
             const id = req.params.id
-            ServiceCliente.Deletar(id)
+            await ServiceCliente.Deletar(id)
             req.send({ message: "Cliente deletado com sucesso."})
         } catch (error) {
             res.send({ message: error.message})

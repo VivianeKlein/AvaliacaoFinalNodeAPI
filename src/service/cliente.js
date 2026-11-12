@@ -6,32 +6,44 @@ class ServiceCliente {
         return cliente.findAll()
     }
 
-    BuscarUm(id) {
+    async BuscarUm(id) {
         if(!id || isNaN(id)) {
             throw new Error("Informe um id valido.")
         }
-        return cliente.BuscarUm(id)
+        return cliente.findByPk(id)
     }
 
-    Cadastrar(nome) {
+    async Cadastrar(id, nome, email, senha) {
         if(!nome) {
             throw new Error("Informe um nome valido.")
         }
-        cliente.Cadastrar(nome)
+        await cliente.create(id, nome, email, senha)
     }
 
-    Alterar(id, nome) {
+    async Alterar(id, nome) {
         if(!id || isNaN(id) || !nome) {
             throw new Error("Informe id e nome validos.")
         }
-        cliente.Cadastrar(id, nome)
+        const clienteAlterar = await cliente.findByPk(id)
+
+        if(!clienteAlterar) {
+            throw new Error("Cliente não encontrado.")
+        }
+        clienteAlterar.nome = nome
+        await clienteAlterar.save()    
     }
 
-    Deletar(id) {
+    async Deletar(id) {
         if(!id || isNaN(id)) {
             throw new Error("Informe um id valido.")
         }
-        cliente.Deletar(id)
+        const clienteDelete = await cliente.findByPk(id)
+
+        if(!clienteDelete) {
+            throw new Error("Informe um id valido.")
+        }
+
+        await clienteDelete.destroy()
     }
 
 }
