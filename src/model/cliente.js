@@ -13,6 +13,7 @@ class cliente {
             },
             email: {
                 type: database.db.Sequelize.STRING,
+                unique: true,
             },
             senha: {
                 type: database.db.Sequelize.STRING,
